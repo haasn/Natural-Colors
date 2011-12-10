@@ -1,5 +1,5 @@
 //===============================
-// Natural Colors v0.8, SES edit
+// Natural Colors v0.9, SES edit
 //===============================
 
 

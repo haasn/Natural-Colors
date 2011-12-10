@@ -1,5 +1,5 @@
 //===============================
-// Natural Colors v0.8, SES edit
+// Natural Colors v0.9, SES edit
 //===============================
 
 
@@ -160,15 +160,15 @@ sampler2D SamplerAdaptation = sampler_state
 	MipMapLodBias=0;
 };
 
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Default pixel shader
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 float4	_c1 : register(c1);
 float4	_c2 : register(c2);
 float4	_c3 : register(c3);
 float4	_c4 : register(c4);
 float4	_c5 : register(c5);
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Default pixel shader
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 float4 PS_PostProcess_Def(float2 coord : TEXCOORD0) : COLOR
 {
@@ -218,7 +218,7 @@ float4 PS_PostProcess_Def(float2 coord : TEXCOORD0) : COLOR
 }
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Technique for SES compatibility
+// Technique for ENB compatibility
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 technique PostProcess
 {
