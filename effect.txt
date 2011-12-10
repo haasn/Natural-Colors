@@ -1,3 +1,5 @@
-// ENB compatibility shader
-#define ENB
+// SES compatibility shader
+#ifndef ENB // Prevent double loading
+#define SES
 #include "main.h"
+#endif

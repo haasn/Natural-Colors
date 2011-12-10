@@ -53,7 +53,7 @@ float4 ColorPipeline(float4 inp)
 
 #include "include/common.h"
 
-#ifdef ENB
+#ifdef SES
 technique PostProcess
 {
 	pass P0
@@ -74,7 +74,7 @@ technique PostProcess
 }
 #endif
 
-#ifdef FXAA
+#if defined(FXAA) || defined(ENB)
 technique PostProcess1
 {
 	pass p1
