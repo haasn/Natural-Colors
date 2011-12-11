@@ -1,0 +1,7 @@
+The v0.10 release is deprecated, I do not recommend using it (instead see https://github.com/nandykins/ENB-Shaders for the preferred alternative)
+
+The v0.9 (SES) release requires the *old* versions of Skyrim Enhanced Shaders to run (anything below 2.0). The newer (2.0 and above) versions use the preferred alternative described above.
+
+The v0.9 (FXAA) release requires the FXAA Injector which is not included.
+
+The v0.9 (SMAA + Injector) release includes the SMAA Injector + algorithm, which is rather slow - use at your own risk.
