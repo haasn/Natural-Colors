@@ -113,15 +113,15 @@ float4	_c5 : register(c5);
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 #ifdef ENB
-float4 EBloomAmount;
+float EBloomAmount;
 
 // x=generic timer in range 0..1, period of 16777216 ms (4.6 hours)
 // w=frame time elapsed (in seconds)
 float4 Timer;
 
 // Temporary variables, keyboard controlled (in some versions exists in the config file)
-float4	tempF1;
-float4	tempF2;
+float4 tempF1;
+float4 tempF2;
 #endif
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -173,7 +173,7 @@ float4 PS_PostProcess_Def(float2 coord : TEXCOORD0) : COLOR
 #ifdef ENB
 float4 PS_PostProcess_Def(float2 coord : TEXCOORD0) : COLOR
 {
-	float4 _c7=float4(0.212500006, 0.715399981, 0.0720999986, 1.0);
+	float4 _c7 = float4(0.212500006, 0.715399981, 0.0720999986, 1.0);
 
 	float4 r0;
 	float4 r1;
