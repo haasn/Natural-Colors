@@ -1,3 +1,5 @@
+// DEPRECATED, DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING
+
 //===============================
 // Natural Colors v0.10, ENB edit
 //===============================
