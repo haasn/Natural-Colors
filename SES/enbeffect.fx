@@ -1,5 +1,5 @@
 //===============================
-// Natural Colors v0.9, SES edit
+// Natural Colors v0.10, ENB edit
 //===============================
 
 
@@ -17,6 +17,9 @@
 // Saturation controls: (Uncomment the #define to enable them)
 // 0 is grayscale, 1 is normal, higher values = more saturated
 //#define SATURATION 1.0
+
+// Enable ENB Bloom effect (Light glares and so on)
+#define EBLOOMENB
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // End of configuration
@@ -160,6 +163,24 @@ sampler2D SamplerAdaptation = sampler_state
 	MipMapLodBias=0;
 };
 
+#ifdef EBLOOMENB
+texture2D texs3; // Bloom ENB
+sampler2D SamplerBloomENB = sampler_state
+{
+	Texture   = <texs3>;
+	MinFilter = LINEAR;
+	MagFilter = LINEAR;
+	MipFilter = NONE;
+	AddressU  = Clamp;
+	AddressV  = Clamp;
+	SRGBTexture=FALSE;
+	MaxMipLevel=0;
+	MipMapLodBias=0;
+};
+
+float EBloomAmount; // External
+#endif
+
 float4	_c1 : register(c1);
 float4	_c2 : register(c2);
 float4	_c3 : register(c3);
@@ -213,8 +234,13 @@ float4 PS_PostProcess_Def(float2 coord : TEXCOORD0) : COLOR
     r1=_c3.w * r1 - r0.y;
     r0=_c3.z * r1 + r0.y;
 	r1=-r0 + _c5;
+	r0 += _c5.w * r1;
 	
-	return NaturalColors(_c5.w * r1 + r0);
+	#ifdef EBLOOMENB
+	r0.xyz += tex2D(SamplerBloomENB, coord).xyz * EBloomAmount;
+	#endif
+	
+	return NaturalColors(r0);
 }
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
